@@ -95,9 +95,6 @@ class Experience(db.Model):
     )
 
 
-with app.app_context():
-    db.create_all()
-
 resource_fields = {
     'id': fields.Integer,
     'type_soft': fields.String,
@@ -369,4 +366,6 @@ def main_page():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    with app.app_context():
+        db.create_all()
+    app.run()
