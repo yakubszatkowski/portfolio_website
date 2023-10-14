@@ -18,9 +18,9 @@ db = SQLAlchemy(app)
 jwt = JWTManager(app)
 
 
-# print(os.environ.get('portfolio_db'))
-# print(os.environ.get('jwt_secret_key'))
-# print(os.environ.get('portfolio_password'))
+print(os.environ.get('portfolio_db'))
+print(os.environ.get('jwt_secret_key'))
+print(os.environ.get('portfolio_password'))
 
 
 class Translation(db.Model):
