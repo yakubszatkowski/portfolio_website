@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="intro-card">
+  <h1 class="main-title">JAKUB SZATKOWSKI</h1>
+  <p class="choose-lang-text">Choose language:</p>
+    <a href="{{url_for('main_page', language='polish')}}" class="glowing-button">
+      <img src="{{ url_for('static', filename='img/icons8-poland-48.png')}}" class="flag-img" alt="Polish flag"> Polski
+    </a>
+
+    <a href="{{url_for('main_page', language='english')}}" class="glowing-button">
+      <img src="{{ url_for('static', filename='img/icons8-great-britain-48.png')}}" class="flag-img" alt="British flag"> English
+    </a>
+</div>
+
+{% endblock %}

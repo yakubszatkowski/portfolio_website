@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="page-transition"> 
+  {% for section_title, section in website_contents.items() %}
+    <label for="check-{{section_title}}">
+      <div class="card">
+        <h1 class="main-title">{{section_title}}</h1>
+        <input type="checkbox" id="check-{{section_title}}" class="checks">
+        {% for subsection in section %}
+          <div class="hidden-wrapper">
+            <div class="hidden-content" >
+
+
+              {% if "subtechnologies_used" in subsection %}  <!--My Projects section-->
+                <h3>{{ subsection['translations']['title'] }}</h3>
+                <div class="indent">
+                  <h4>{{ subsection['subtechnologies_used'] }}</h4>
+                  <p>{{ subsection['translations']['text'] }}</p>
+                </div>
+                <img src="{{subsection['image_path']}}" class="img-project">
+                <br>
+                <a href="{{ subsection['link'] }}" class="glowing-button">Github link</a>
+              {% endif %}
+
+
+              {% if "technology_name" in subsection %}  <!--Technical Skills section-->
+                <h3>{{ subsection['technology_name'] }}</h3>
+                {% if 'subtechnologies' in subsection %}
+                  {% for subtechnology in subsection['subtechnologies'] %}
+                    <div class="one-line-text indent">
+                      <h4>{{ subtechnology['subtechnology_name'] }}&nbsp;</h4>
+                      <p>{{ subtechnology['translations']['text'] }}</p>
+                    </div>
+                  {% endfor %}
+                {% else %}
+                  <div class="indent">
+                    <p>{{ subsection['translations']['text'] }}</p>
+                  </div>
+                {% endif %}
+              {% endif %}
+
+
+              {% if 'work' in subsection.values() %} <!--Work experience section-->
+                <h3>{{ subsection['translations']['title'] }}</h3>
+                <div class="one-line-text indent">
+                  <h4>{{ subsection['location'] }} &nbsp;</h4>
+                  <p class="time-range"> {{ subsection['time_range'] }}</p>
+                </div>
+                <p class="indent-other">{{ subsection['translations']['text'] }}</p>
+              {% endif %}
+
+
+              {% if 'education' in subsection.values() %} <!--Work experience section-->
+                <h3>{{ subsection['translations']['title'] }}</h3>
+                <div class="one-line-text indent">
+                  <h4>{{ subsection['location'] }} &nbsp;</h4>
+                  <p class="time-range"> {{ subsection['time_range'] }}</p>
+                </div>
+                <p class="indent-other">{{ subsection['translations']['text'] }}</p>
+              {% endif %}
+
+
+              {% if 'type_soft' in subsection %}
+                <p class="indent-other">&nbsp; &nbsp; &nbsp; &nbsp;{{ subsection['translations']['text']|replace('\n', '<br>')|safe}}</p>
+              {% endif %}
+
+              {% if 'contact' in subsection %}
+                <h4 class="e-mail">yakub.szatkowski@gmail.com</h4>
+
+                <div class="contact-icons">
+                  <a href="https://github.com/yakubszatkowski" class="link-display">
+                    <img src="{{ url_for('static', filename='img/contact_icons/github.png')}}" class="contact-img" alt="Github">
+                  </a>
+                  <a href="https://www.linkedin.com/in/jakub-szatkowski-77b719237/" class="link-display">
+                    <img src="{{ url_for('static', filename='img/contact_icons/linkedin.png')}}" class="contact-img" alt="Linkedin">
+                  </a>
+                  <a href="mailto: yakub.szatkowski@gmail.com" class="link-display">
+                    <img src="{{ url_for('static', filename='img/contact_icons/mail.png')}}" class="contact-img" alt="Mail">
+                  </a>
+                </div>
+              {% endif %}
+
+
+
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </label>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    {% block styles %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+  <section class="glowing-bg"></section>
+  {% block content %} {% endblock %}
+
+  <script src="{{ url_for('static', filename='js/shootingStars.js')}}"></script>
+</body>
+</html>

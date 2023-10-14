@@ -1,0 +1,273 @@
+* {
+}
+
+body {
+  color: white;
+  font-family: 'Montserrat';
+  text-align: center;
+  overflow-x: hidden;
+  margin: 5%;
+}
+
+.glowing-bg {
+  position: fixed;
+  width: 100%;
+  inset: 0;  /* this holds top, bottom, right, left value to 0*/
+  background: radial-gradient(circle, #091235 10%, black 80%);
+  animation: animateBG 10s linear infinite;
+  z-index: -1;
+}
+
+@keyframes animateBG {
+  0% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(1.2)
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 4px #9fbce9;
+  animation: fall 3s linear infinite
+}
+
+.shooting-star::before {
+  content: '';
+  top: 35%;
+  left: 50%;
+  position: absolute;
+  height: 1px;
+  transform-origin: left;
+  transform: rotate(-45deg);
+  background: linear-gradient(90deg, #9fbce9, transparent);
+  animation: tail 5s linear infinite
+}
+
+@keyframes tail {
+  0%, 100% { width: 0 }
+  40% { width: 300px }
+}
+
+@keyframes fall {
+  0% { transform: translate(0, 0) }
+  100% { transform: translate(-600px, 600px) }
+}
+
+.card {
+  width: 60%;
+  display: inline-block;  /* fixes margin clickable area */
+  padding: 1%;
+  background-color: rgba(0,0,0,.2);
+  border-radius: 10px;
+  margin-top: 1%;
+  transition: 0.5s;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px 2px #9fbce9;
+}
+
+.card:hover > .main-title {
+  letter-spacing: 16px;
+}
+
+.intro-card {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: up-to-middle 2s linear;
+}
+
+@keyframes page-transition-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes up-to-middle {
+  0% { top: 20%; opacity: 0.1 }
+  40% { top: 30% }
+  100% { top: 40% }
+}
+
+.main-title {
+  letter-spacing: 15px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  transition: 1s;
+}
+
+.choose-lang-text {
+  text-align: center;
+}
+
+.page-transition {
+  animation: page-transition-in 1s;
+}
+
+@keyframes page-transition-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.glowing-button {
+  display: inline-block;  /* fixes margin clickable area */
+  margin: 15px;
+  text-decoration: none;
+  color: white;
+  padding: 5px 20px;
+  background-color: rgba(0,0,0,.2);
+  border: 1px solid black;
+  transition: 0.5s;
+}
+
+.img-project {
+  border-radius: 20px;
+}
+
+.flag-img {
+  vertical-align: middle;
+  height: 20px;
+}
+
+.glowing-button:hover {
+  box-shadow: 0 0 20px 4px #9fbce9;
+  color: white;
+}
+
+p, h3, h4, h5, h6 {  /* .content-text previously instead of p */
+  margin-inline: 20px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.checks {
+  display: none;
+}
+
+.hidden-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 1s ease-in-out, opacity 1s ease-in-out 0.2s; /* multiple transitions */
+}
+
+.hidden-content {
+  overflow: hidden;
+}
+
+.checks:checked ~ .hidden-wrapper {
+  grid-template-rows: 1fr;  /* height 0 -> auto hack */
+  opacity: 1;
+}
+
+.one-line-text {
+  margin-inline 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.one-line-text h4, .one-line-text p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 0px;
+}
+
+.indent {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.indent-other {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+
+
+img {
+  max-width: 600px;
+  transition: 0.2s;
+}
+
+.contact-img {
+  display: inline-block;
+  max-height: 40px;
+  max-width: 40px;
+  margin: 15px;
+  filter: invert(1);
+  transition: 0.2s;
+  border-radius: 10px;
+}
+
+.contact-img:hover {
+  box-shadow: 0 0 44px 4px grey, inset 0 0 4px 4px grey;
+  color: white;
+}
+
+.e-mail {
+  text-align: center;
+  margin: 3px;
+}
+
+.link-display {
+  display: inline-block;
+}
+
+@media (max-width: 1200px) {  /* High res iPad/tablet */
+  .card {
+    width: 85%;
+  }
+}
+
+@media (max-width: 768px) {  /* Low res iPad/tablet */
+  .card {
+    width: 99%;
+  }
+  .main-title {
+    letter-spacing: 5px;
+  }
+  .card:hover > .main-title {
+    letter-spacing: 6px;
+  }
+  .one-line-text {
+    display: block
+  }
+  .one-line-text h4, .one-line-text p {
+    text-align: left;
+  }
+  .one-line-text p {
+    margin-left: 30px
+  }
+  .one-line-text .time-range {
+    margin-left: 20px
+  }
+  .indent-other {
+    margin-left: 50px;
+  }
+  img {
+    max-width: 400px;
+  }
+}
+
+
+
