@@ -62,7 +62,7 @@
 
 
               {% if 'type_soft' in subsection %}
-                <p class="indent-other">&nbsp; &nbsp; &nbsp; &nbsp;{{ subsection['translations']['text']|replace('\n', '<br>')|safe}}</p>
+                <p class="indent-other">{{ subsection['translations']['text']|replace('\n', '<br>')|safe}}</p>
               {% endif %}
 
               {% if 'contact' in subsection %}

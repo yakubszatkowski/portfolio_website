@@ -183,7 +183,7 @@ p, h3, h4, h5, h6 {  /* .content-text previously instead of p */
   margin-inline 20px;
   display: flex;
   align-items: center;
-  justify-content: left;
+
 }
 
 .one-line-text h4, .one-line-text p {
@@ -200,9 +200,8 @@ p, h3, h4, h5, h6 {  /* .content-text previously instead of p */
 .indent-other {
   margin-left: 40px;
   margin-right: 40px;
+  text-align-last: left;
 }
-
-
 
 img {
   max-width: 600px;
@@ -239,7 +238,7 @@ img {
   }
 }
 
-@media (max-width: 768px) {  /* Low res iPad/tablet */
+@media (max-width: 868px) {  /* Low res iPad/tablet */
   .card {
     width: 99%;
   }

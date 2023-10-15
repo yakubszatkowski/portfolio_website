@@ -6,9 +6,11 @@
     {% block styles %}
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     {% endblock %}
 </head>
 <body>
+
   <section class="glowing-bg"></section>
   {% block content %} {% endblock %}
 
