@@ -244,15 +244,13 @@ img {
   }
   .main-title {
     letter-spacing: 5px;
+    font-size: 1.66em;
   }
   .card:hover > .main-title {
     letter-spacing: 6px;
   }
   .one-line-text {
     display: block
-  }
-  .one-line-text h4, .one-line-text p {
-    text-align: left;
   }
   .one-line-text p {
     margin-left: 30px
