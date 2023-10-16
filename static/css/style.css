@@ -244,7 +244,7 @@ img {
   }
   .main-title {
     letter-spacing: 5px;
-    font-size: 1.66em;
+    font-size: 1.33em;
   }
   .card:hover > .main-title {
     letter-spacing: 6px;
@@ -266,5 +266,6 @@ img {
   }
 }
 
+@media (max-width: 868px)
 
 
